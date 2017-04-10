@@ -1,0 +1,16 @@
+.bar {
+  &:before, &:after {
+    background-color: $color-accent-light;
+  }
+}
+
+.inputElement {
+  &:focus:not([disabled]):not([readonly]) {
+    ~ .label:not(.fixed) {
+      color: $color-accent-light;
+    }
+    ~ .icon {
+      color: $color-accent-light;
+    }
+  }
+}

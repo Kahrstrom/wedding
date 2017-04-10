@@ -1,0 +1,32 @@
+@import "~react-toolbox/lib/colors";
+
+
+
+$break-small: 764px;
+$break-large: 1200px;
+
+$color-primary: #806E4B;
+$color-primary-dark: #6C5B7B;
+$color-accent-light: #F8B195;
+$color-accent-dark: #C06C84;
+$color-accent: #F67280;
+$color-gold: #806E4B;
+
+$text-color-light: #FFF;
+$text-color-dark: #353535;
+
+$unit: 1rem;
+
+$padding-normal: 1.6*$unit;
+$padding-small: 0.8*$unit;
+
+$margin-normal: 1.6*$unit;
+$margin-small: 0.8*$unit; 
+
+h1, h2, h3, h4 {
+  font-family: 'Grenadier';
+}
+
+body {
+  overflow-x: hidden;
+}

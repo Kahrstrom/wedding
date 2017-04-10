@@ -1,0 +1,37 @@
+.right {
+    margin-right: $margin-normal;
+    margin-left: auto;
+}
+
+.left {
+    margin-left: $margin-normal;
+    margin-right: auto;
+    margin-bottom: $margin-normal;
+}
+
+.top {
+    margin-top: $margin-normal;
+}
+
+.bottom {
+    margin-bottom: $margin-normal;
+}
+
+.floating {
+    @media screen and (max-width: $break-small) {
+        position: fixed;
+        right: $margin-normal;
+        bottom: $margin-normal;
+    }
+    -webkit-transition: 0.3s ease-in-out;
+    -moz-transition: 0.3s ease-in-out;
+    -o-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+    &:hover {
+        -webkit-transform: rotate(180deg) scale(1.2);
+        -moz-transform: rotate(180deg) scale(1.2);
+        -o-transform: rotate(180deg) scale(1.2);
+        -ms-transform: rotate(180deg) scale(1.2);
+        transform: rotate(180deg) scale(1.2);
+    }
+}

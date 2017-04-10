@@ -1,0 +1,18 @@
+.tile {
+   min-height: 600px;
+   padding-top: 200px;
+   border-bottom: 2px solid #806E4B;
+   margin-left: 50px;
+   margin-right: 50px;
+   position: relative;
+   &:after {
+      content:'';
+      position: absolute;
+      left: 50%;
+      margin-left: -15px;
+      bottom: -15px;
+      border-top: solid 15px #806E4B;
+      border-left: solid 15px transparent;
+      border-right: solid 15px transparent;
+   }
+}
