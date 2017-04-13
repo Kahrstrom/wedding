@@ -30,7 +30,7 @@ class FormEntry extends Component {
                   <Card className={theme.formContainer}>
                      <CardTitle
                            title="Anmälan"
-                           subtitle="Anmäl er och skriv gärna ner eventuella matpreferenser/kommenatarer. Gör en anmälan per person som kommer så blir det lättare för oss att hålla koll :)" />
+                           subtitle="Anmäl er och skriv ner eventuella matpreferenser/kommenatarer. Gör en anmälan per person som kommer så blir det lättare för oss att hålla koll :)" />
                      <CardText>
                            <Field component={FormInput} type="text" label="Namn" name="name" {...name} />
                            {/*<Field component={FormInput} type="alcohol" label="" name="participants" {...participants} />*/}
