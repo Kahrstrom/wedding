@@ -1,46 +1,56 @@
 import axios from 'axios';
 
-export const FETCH_POSTS = 'FETCH_POSTS';
-export const CREATE_POST = 'CREATE_POST';
-export const FETCH_POST = 'FETCH_POST';
-export const DELETE_POST = 'DELETE_POST';
+// export const FETCH_POSTS = 'FETCH_POSTS';
+// export const CREATE_POST = 'CREATE_POST';
+// export const FETCH_POST = 'FETCH_POST';
+// export const DELETE_POST = 'DELETE_POST';
+export const ADD_ENTRY = 'ADD_ENTRY';
 
-const ROOT_URL = 'http://reduxblog.herokuapp.com/api';
-const API_KEY = '?key=skillocate122141233';
+const ROOT_URL = 'https://agnesjonatan-api.herokuapp.com/api/v1';
+// const API_KEY = '?key=skillocate122141233';
 
-export function fetchPosts() {
-    const request = axios.get(`${ROOT_URL}/posts${API_KEY}`);
+export function addEntry(props) {
+    const request = axios.post(`${ROOT_URL}/guest/register/`, props);
 
     return {
-        type: FETCH_POSTS,
+        type: ADD_ENTRY,
         payload: request
-    };
+    }
 }
 
-export function fetchPost(id) {
-    const request = axios.get(`${ROOT_URL}/posts/${id}${API_KEY}`);
+// export function fetchPosts() {
+//     const request = axios.get(`${ROOT_URL}/posts${API_KEY}`);
 
-    return {
-        type: FETCH_POST,
-        payload: request.then().catch((error) => { console.log(error)})
-    };
-}
+//     return {
+//         type: FETCH_POSTS,
+//         payload: request
+//     };
+// }
 
-export function createPost(props) {
-    const request = axios.post(`${ROOT_URL}/posts${API_KEY}`, props);
+// export function fetchPost(id) {
+//     const request = axios.get(`${ROOT_URL}/posts/${id}${API_KEY}`);
 
-    return {
-        type: CREATE_POST,
-        payload: request
-    };
-}
+//     return {
+//         type: FETCH_POST,
+//         payload: request.then().catch((error) => { console.log(error)})
+//     };
+// }
 
-export function deletePost(id){
-    const request = axios.delete(`${ROOT_URL}/posts/${id}${API_KEY}`);
+// export function createPost(props) {
+//     const request = axios.post(`${ROOT_URL}/posts${API_KEY}`, props);
 
-    return {
-        type: DELETE_POST,
-        payload: request
-    };
-}
+//     return {
+//         type: CREATE_POST,
+//         payload: request
+//     };
+// }
+
+// export function deletePost(id){
+//     const request = axios.delete(`${ROOT_URL}/posts/${id}${API_KEY}`);
+
+//     return {
+//         type: DELETE_POST,
+//         payload: request
+//     };
+// }
 
