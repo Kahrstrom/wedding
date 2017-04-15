@@ -2,16 +2,42 @@ import React, { Component } from 'react';
 import HeaderBar from '../../components/HeaderBar';
 import InformationTile from '../../components/InformationTile';
 import information from '../../static/text/information';
-// import './Home.scss';
+import Scroll from 'react-scroll';
 
+var Events     = Scroll.Events;
+
+var scroll     = Scroll.animateScroll;
 export default class Home extends Component {
+
+  constructor (props){
+      super(props);
+  }
+
+  componentDidUpdate() {
+
+    Events.scrollEvent.register('begin', function() {
+      
+    });
+
+    Events.scrollEvent.register('end', function() {
+
+    });
+
+    // scrollSpy.update();
+    if(this.props.location.pathname === '/information') {
+      scroll.scrollTo(900);
+    }
+    else if(this.props.location.pathname === '/') {
+      scroll.scrollToTop();
+    }
+  }
+
   render() {
-    // const styles = require('./Home.scss');
-    console.log('2hsdf')
+
     return (
-      <div>
+      <div containerId="mainPage">
         <HeaderBar />
-        {/*<InformationTile title={information.title} body={information.body} />*/}
+        <InformationTile id='information' title={information.title} body={information.body} />
       </div>
     );
   }

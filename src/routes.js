@@ -12,7 +12,7 @@ export default (
 
         <IndexRoute component={Home} />
         <Route path="/register" component={FormEntry} />
-        {/*<Route path="posts/:id" component={PostsShow} />*/}
+        <Route path="/information" component={Home} />
     </Route>
 ); 
  

@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import './theme.scss';
+import { Grid, Row, Col } from 'react-flexbox-grid';
+import theme from './theme.scss';
 
-const InformationTile = ({title, body}) => {
+const InformationTile = ({title, body, id}) => {
    return (
-      <div className='tile'>
+      <Grid id={id} className={theme.tile}>
          <h2>{title}</h2>
          <span>{body}</span>
-      </div>
+      </Grid>
    );
 }
 

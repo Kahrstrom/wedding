@@ -46,7 +46,6 @@ export default class CountDown extends Component {
                   <div className={styles.circle}></div>
                   <div className={styles.circle}></div>
                </div>
-               <h2>Mer information kommer snart!</h2>
             </div>
          );
       }
@@ -61,7 +60,6 @@ export default class CountDown extends Component {
                <div className={styles.circle}><h3>{this.state.countDown.minutes}</h3><span>minuter</span></div>
                <div className={styles.circle}><h3>{this.state.countDown.seconds}</h3><span>sekunder</span></div>
             </div>
-            <h2>Mer information och anmälan kommer snart!</h2>
          </div>
       );
    }
