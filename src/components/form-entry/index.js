@@ -2,27 +2,50 @@ import React, { Component, PropTypes } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { Card, CardTitle, CardText, CardActions } from 'react-toolbox/lib/card';  
+import { Dialog } from 'react-toolbox/lib/dialog';
 import FormInput from '../form_input/';
 import Button from 'react-toolbox/lib/button';
 import theme from './theme.scss';
 import { Link } from 'react-router';
 import { addEntry } from '../../actions/index';
 import { Grid, Row, Col } from 'react-flexbox-grid';
+import CircularLoader from '../circular_loader';
 
 class FormEntry extends Component {
     static contextTypes = {
         router: PropTypes.object
     };
 
+    reRoute = () => {
+        this.context.router.push('/');
+    }
+
+    actions = [
+        { label: "Ok", onClick: this.reRoute }
+    ]
+
+    componentWillMount() {
+        const waiting = false;
+        const submitted = false;
+        this.setState({waiting, submitted});
+   }
+
     onSubmit(props) {
-        this.props.addEntry(props)
-            .then(() => { 
-                //blog post has been created, navigate the user to index.
-                this.context.router.push('/');
-             });
+        let waiting = true;
+        const submitted = true;
+        this.setState({waiting});
+        this.props.addEntry(props).then(() => { 
+            waiting = false;
+            this.setState({submitted, waiting});
+        });
     }
 
     render() {
+        if(this.state.waiting){
+            return (
+                <CircularLoader />
+            );
+        }
         const { fields: { name, participants, comment, food }, handleSubmit, reset } = this.props;
         return (
            <Grid>
@@ -46,6 +69,14 @@ class FormEntry extends Component {
                      </CardActions>
                   </Card>
                </form>
+               <Dialog
+                    actions={this.actions}
+                    active={this.state.submitted}
+                    onEscKeyDown={this.reRoute}
+                    title='Anmälan gick fint!'
+                    >
+                    <p>Du är nu anmäld!</p>
+                </Dialog>
             </Grid>
         );
     }
