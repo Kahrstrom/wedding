@@ -15,15 +15,24 @@ export default class Home extends Component {
 
   componentDidUpdate() {
 
-    Events.scrollEvent.register('begin', function() {
+    // Events.scrollEvent.register('begin', function() {
       
-    });
+    // });
 
-    Events.scrollEvent.register('end', function() {
+    // Events.scrollEvent.register('end', function() {
 
-    });
+    // });
 
     // scrollSpy.update();
+    if(this.props.location.pathname === '/information') {
+      scroll.scrollTo(900);
+    }
+    else if(this.props.location.pathname === '/') {
+      scroll.scrollToTop();
+    }
+  }
+
+  componentDidMount() {
     if(this.props.location.pathname === '/information') {
       scroll.scrollTo(900);
     }
