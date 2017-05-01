@@ -13,7 +13,7 @@ const toasts = {
    subtitle: '',
    body: 'Tal är såklart väldigt uppskattade! Anmäl dem till våra toastmasters så att de kan ' +
          'planera middagen ordentligt. Anmälan av tal eller annat hittepå görs till Andrea ' +
-         '(andrea.k.pettersson[at]gmail.com) eller Carl (carl.wesslen[at]hotmail.com). Anmäl senast den 27 maj.'
+         '(andrea.k.pettersson[at]gmail.com) eller Carl (carl.wesslen[at]hotmail.com) senast den 27 maj.'
 }
 
 const gifts = {
