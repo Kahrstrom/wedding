@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
-import { Grid, Row, Col } from 'react-flexbox-grid';
+import { Card, CardTitle, CardText, CardActions } from 'react-toolbox/lib/card';  
 import theme from './theme.scss';
 
-const InformationTile = ({title, body, id}) => {
+const InformationTile = ({title, subtitle, body, id}) => {
    return (
-      <Grid id={id} className={theme.tile}>
-         <h2>{title}</h2>
-         <span>{body}</span>
-      </Grid>
+      <Card id={id} className={theme.tile}>
+         <CardTitle
+            title={title}
+            subtitle={subtitle} />
+         <CardText>
+            {body}
+         </CardText>
+      </Card>
    );
 }
 

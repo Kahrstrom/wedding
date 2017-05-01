@@ -1,44 +1,34 @@
 import React, { Component } from 'react';
 import HeaderBar from '../../components/HeaderBar';
 import InformationTile from '../../components/InformationTile';
-import information from '../../static/text/information';
+import { Grid, Row, Col } from 'react-flexbox-grid';
+import {information, toasts, gifts} from '../../static/text/information';
 import Scroll from 'react-scroll';
 
-var Events     = Scroll.Events;
+var Events = Scroll.Events;
 
-var scroll     = Scroll.animateScroll;
+var scroll = Scroll.animateScroll;
 export default class Home extends Component {
 
   constructor (props){
       super(props);
   }
 
-  componentDidUpdate() {
-
-    // Events.scrollEvent.register('begin', function() {
-      
-    // });
-
-    // Events.scrollEvent.register('end', function() {
-
-    // });
-
-    // scrollSpy.update();
+  scrollOnEnter = () => {
     if(this.props.location.pathname === '/information') {
-      scroll.scrollTo(900);
+      scroll.scrollTo(800);
     }
     else if(this.props.location.pathname === '/') {
       scroll.scrollToTop();
     }
   }
 
+  componentDidUpdate() {
+    this.scrollOnEnter();
+  }
+
   componentDidMount() {
-    if(this.props.location.pathname === '/information') {
-      scroll.scrollTo(900);
-    }
-    else if(this.props.location.pathname === '/') {
-      scroll.scrollToTop();
-    }
+    this.scrollOnEnter();
   }
 
   render() {
@@ -46,7 +36,11 @@ export default class Home extends Component {
     return (
       <div containerId="mainPage">
         <HeaderBar />
-        <InformationTile id='information' title={information.title} body={information.body} />
+        <Grid>
+          <InformationTile id='information' title={information.title} subtitle={information.subtitle} body={information.body} />
+          <InformationTile id='toasts' title={toasts.title} subtitle={toasts.subtitle} body={toasts.body} />
+          <InformationTile id='gifts' title={gifts.title} subtitle={gifts.subtitle} body={gifts.body} />
+        </Grid>
       </div>
     );
   }
